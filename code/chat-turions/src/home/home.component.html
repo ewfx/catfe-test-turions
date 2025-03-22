@@ -1,0 +1,36 @@
+<div class="container">
+    <header class="header">
+      <h1>AI TestGen</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Test Generation</a>
+        <a href="#">Test Execution</a>
+      </nav>
+    </header>
+  
+    <div class="grid">
+      <div class="card">
+        <h2>Generate Tests</h2>
+        <p>
+          Create new BDD tests using AI-driven tools. Customize scenarios and
+          steps to fit your testing needs.
+        </p>
+        <button (click)="startGenerating()">Start Generating</button>
+      </div>
+  
+      <div class="card">
+        <h2>Update Tests</h2>
+        <p>
+          Modify existing tests to keep them up-to-date with the latest changes in
+          your project.
+        </p>
+        <button (click)="startUpdating()">Start Updating</button>
+      </div>
+  
+      <div class="card large">
+        <h2>Execute Tests</h2>
+        <p>Run your tests and get detailed reports on their performance and outcomes.</p>
+        <button (click)="startExecution()">Start Execution</button>
+      </div>
+    </div>
+  </div>

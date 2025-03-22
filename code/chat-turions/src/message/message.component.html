@@ -1,1 +1,16 @@
-<p>message works!</p>
+<div class="chat-container">
+    <h2 class="text-2xl font-bold text-center mb-4">AI Chat - BDD Generator</h2>
+    <div class="message-container">
+      <div *ngFor="let msg of messages" 
+           class="message" 
+           [ngClass]="msg.isUser ? 'user-message' : 'bot-message'">
+        {{ msg.text }}
+      </div>
+    </div>
+  
+    <div class="input-container">
+      <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type a message...">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+  

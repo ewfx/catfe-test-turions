@@ -1,0 +1,62 @@
+<div class="container">
+    <header class="header">
+      <h1>AI TestGen</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Test Generation</a>
+        <a href="#">Test Execution</a>
+      </nav>
+    </header>
+  
+    <div class="grid">
+      <div class="card">
+        <h2>Enter Context</h2>
+        <label>Feature Name</label>
+        <input type="text" placeholder="Enter feature name" />
+  
+        <label>Scenario</label>
+        <input type="text" placeholder="Enter scenario" />
+  
+        <label>Step Definition</label>
+        <input type="text" placeholder="Enter step definition" />
+  
+        <h3>Choose Test Criteria</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Functional Testing</label>
+          <label><input type="checkbox" /> Regression Testing</label>
+          <label><input type="checkbox" /> Performance Testing</label>
+        </div>
+      </div>
+  
+      <div class="card">
+        <h2>Preview Generated Tests</h2>
+        <div class="test-preview">
+          <p><strong>Feature:</strong> Login Functionality</p>
+          <p><strong>Scenario:</strong> Successful Login with Valid Credentials</p>
+          <p><strong>Steps:</strong></p>
+          <ul>
+            <li>Given the user is on the login page</li>
+            <li>When the user enters valid credentials</li>
+            <li>Then the user is redirected to the dashboard</li>
+          </ul>
+        </div>
+  
+        <div class="test-preview">
+          <p><strong>Feature:</strong> Password Recovery</p>
+          <p><strong>Scenario:</strong> Email Notification Sent for Password Recovery</p>
+          <p><strong>Steps:</strong></p>
+          <ul>
+            <li>Given the user navigates to the password recovery page</li>
+            <li>When the user submits their email</li>
+            <li>Then a recovery email is sent to the user</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="buttons">
+      <button (click)="generateTests()">Generate Tests</button>
+      <button (click)="updateTests()">Update Tests</button>
+    </div>
+  </div>
+  
