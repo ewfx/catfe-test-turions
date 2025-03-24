@@ -4,44 +4,44 @@ import requests
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 class BDDTestGeneratorService:
-    def __init__(self, model_path):
-        # Initialize and load the model and tokenizer with local files
-        self.model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
-        self.model.eval()
-    def generate_test_cases(self, context):
+    # def __init__(self, model_path):
+    #     # Initialize and load the model and tokenizer with local files
+    #     self.model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True)
+    #     self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+    #     self.model.eval()
+    # def generate_test_cases(self, context):
 
-        scenario = "A user withdraws money from an ATM"
-        test_data = "Account Balance: 1000\nWithdrawal Amount: 500\nATM Withdrawal Limit: 1000\n"
+    #     scenario = "A user withdraws money from an ATM"
+    #     test_data = "Account Balance: 1000\nWithdrawal Amount: 500\nATM Withdrawal Limit: 1000\n"
 
-        prompt= f"""Write test cases in proper Gherkin BDD format with GIven, When, Then.
-        Only return the test cases, do not include extra explanation or link.
+    #     prompt= f"""Write test cases in proper Gherkin BDD format with GIven, When, Then.
+    #     Only return the test cases, do not include extra explanation or link.
 
-        """
+    #     """
         
-        # Prepare input for the model
-        inputs = self.tokenizer.encode(prompt, return_tensors="pt")
-        print(F"Input IdsShape: {inputs.shape}")
+    #     # Prepare input for the model
+    #     inputs = self.tokenizer.encode(prompt, return_tensors="pt")
+    #     print(F"Input IdsShape: {inputs.shape}")
 
-        # Generate text
-        with torch.no_grad():
-            outputs = self.model.generate(
-                inputs,
-                  max_length=400,
-                    num_return_sequences=1,
-                      temperature=0.3,
-                        top_k=20, repetition_penalty=2.5,
-                        no_repeat_ngram_size=4,
-                        early_stopping=True,)
+    #     # Generate text
+    #     with torch.no_grad():
+    #         outputs = self.model.generate(
+    #             inputs,
+    #               max_length=400,
+    #                 num_return_sequences=1,
+    #                   temperature=0.3,
+    #                     top_k=20, repetition_penalty=2.5,
+    #                     no_repeat_ngram_size=4,
+    #                     early_stopping=True,)
         
-        print(F"Output IdsShape: {outputs.shape}")
-        # Decode and return the generated text
-        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+    #     print(F"Output IdsShape: {outputs.shape}")
+    #     # Decode and return the generated text
+    #     return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 
-    def __init__(self, openai_api_key):
+    def __init__(self):
         # Initialize the OpenAI API key
-        self.api_key = "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"
+        self.api_key = "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"
         openai.api_key = self.api_key
 
     def generate_test_cases_openrouter(self, context):
