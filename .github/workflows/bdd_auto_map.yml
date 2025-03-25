@@ -23,6 +23,9 @@ jobs:
             pip install -r requirements.txt
           fi
 
+          pip install gitpython
+          pip install pymongo
+
 
       - name: Analyze GIT Code Change Script
         run: python code/src/app/service/mapTestToCodeToJira/gitCodeChangeAnalyzer.py
