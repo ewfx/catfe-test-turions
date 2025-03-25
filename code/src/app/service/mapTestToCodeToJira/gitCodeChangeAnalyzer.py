@@ -1,8 +1,6 @@
 import os
-import git
 import sys
-import requests
-import openai
+import subprocess 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
 
