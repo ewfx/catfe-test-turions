@@ -11,7 +11,7 @@ def get_changed_files():
         
         # Check if there are at least two commits
         result = subprocess.run(
-            ["git", "rev-list", "--count", "HEAD"],
+            ["git", "diff", "--name-only"," HEAD~1"],
             capture_output=True, text=True, check=True
         )
         commit_count = int(result.stdout.strip())
