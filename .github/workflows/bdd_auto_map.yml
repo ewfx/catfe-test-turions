@@ -23,11 +23,8 @@ jobs:
             pip install -r requirements.txt
           fi
 
-      - name: Get Changed Files
-        run: 
-
       - name: Analyze GIT Code Change Script
-        run: python code/src/app/service/mapTestToCodeToJira/gitCodeChangeAnalyzer.py
+        run: python code/src/app/service/mapTestToCodeToJira/detectGitCodeChanges.py
 
       - name: Update BDDFeatureSet DB
         run: python code/src/app/service/mapTestToCodeToJira/updateBDDTestSet.py
