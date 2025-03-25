@@ -4,7 +4,7 @@ import sys
 import requests
 import openai
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from src.mongo_connect import connect_to_mongodb, search_field_in_collection, search_scenarios_by_state  # Import functions from mongo_connect.py
+from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
 
 def main():
     # Git repository details
@@ -70,14 +70,14 @@ def main():
                 primaryFeatureDependency = doc.get("primaryFeatureDependency")  # Replace "feature_id" with the actual field name
                 if primaryFeatureDependency:
                     print(f"\nSearching for scenarios with primaryFeatureDependency: {primaryFeatureDependency}")
-                    search_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "unstable")
+                    search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "unstable")
         
         if documents:
             for doc in documents:
                 secondaryFeatureDependency = doc.get("secondaryFeatureDependency")  # Replace "feature_id" with the actual field name
                 if secondaryFeatureDependency:
                     print(f"\nSearching for scenarios with secondaryFeatureDependency: {secondaryFeatureDependency}")
-                    search_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially unstable")
+                    search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially unstable")
 
         # Initialize the BDD Test Generator with your OpenAI API key
 

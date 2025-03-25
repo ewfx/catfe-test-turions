@@ -56,7 +56,7 @@ def search_field_in_collection(db, collection_name, field_value):
     except Exception as e:
         print(f"Failed to search in collection '{collection_name}':", str(e))
         return []
-def search_scenarios_by_state(db, collection_name, featureName, state):
+def search_and_update_scenarios_by_state(db, collection_name, featureName, state):
     try:
         # Access the collection
         print(f"Accessing collection: {collection_name}")
@@ -67,11 +67,6 @@ def search_scenarios_by_state(db, collection_name, featureName, state):
         query = {"featureName": featureName}
         results = collection.find(query)
         #print(results)
-        
-        # Print the results
-        #print(f"Scenarios matching featureName '{featureName}' in collection '{collection_name}':")
-        #for document in results:
-            #print(document)
         
         # Update the state in the BDDTESTMAPPER database
 # Update the state in the BDDTESTMAPPER database
