@@ -29,7 +29,7 @@ def search_field_in_collection(db, collection_name, field_value):
         
         # Define the query
         query = {"file": field_value}
-        print(f"Query: {query}")
+        #print(f"Query: {query}")
         
         # Execute the query
         results = collection.find(query)
@@ -70,8 +70,8 @@ def search_scenarios_by_state(db, collection_name, featureName, state):
         
         # Print the results
         #print(f"Scenarios matching featureName '{featureName}' in collection '{collection_name}':")
-        for document in results:
-            print(document)
+        #for document in results:
+            #print(document)
         
         # Update the state in the BDDTESTMAPPER database
 # Update the state in the BDDTESTMAPPER database
