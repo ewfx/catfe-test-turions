@@ -1,0 +1,19 @@
+{
+    "feature_id": "FTR001",
+    "feature_name": "User Login",
+    "short_description": "Feature to allow users to log in securely.",
+    "feature_context": "As a user, I want to log in to access my account.",
+    "state": "Active",
+    "test_scenarios_list": [
+        {
+            "scenario_name": "Successful Login",
+            "scenario_description": "User enters valid credentials and logs in successfully.",
+            "scenario_status": "Passed"
+        },
+        {
+            "scenario_name": "Invalid Login Attempt",
+            "scenario_description": "User enters incorrect credentials and gets an error message.",
+            "scenario_status": "Failed"
+        }
+    ]
+}
