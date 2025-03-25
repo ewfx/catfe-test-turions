@@ -1,12 +1,10 @@
 import os
 import sys
-import subprocess 
+import subprocess
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
 
-def main():
-    # Git repository details
-   def get_changed_files():
+def get_changed_files():
     try:
         # Run the git command to get the list of changed files
         result = subprocess.run(
@@ -23,39 +21,37 @@ def main():
         print(f"Error running git command: {e}")
         return []
 
-        # Print the list of changed files
-        print(get_changed_files())
+def main():
+    # Print the list of changed files
+    changed_files = get_changed_files()
+    print("Changed files:", changed_files)
 
-        
-        # Extract only the last script name (file name without path)
-        if changed_files:
-            last_script_name = os.path.basename(changed_files[-1])  # Extract only the file name
-            print(f"\nLast Script modified: {last_script_name}")
+    # Extract only the last script name (file name without path)
+    if changed_files:
+        last_script_name = os.path.basename(changed_files[-1])  # Extract only the file name
+        print(f"\nLast Script modified: {last_script_name}")
 
-            # Connect to MongoDB and call search_field_in_collection
-            db = connect_to_mongodb()
-            if db is not None:
-                # Search for the code to module ans feature mapping in the "code_feature_mapping" collection
-                documents = search_field_in_collection(db, "code_feature_mapping", last_script_name)
-            else:
-                print("\nNo script names found.")
-        
-        if documents:
-            for doc in documents:
-                primaryFeatureDependency = doc.get("primaryFeatureDependency")  # Replace "feature_id" with the actual field name
-                if primaryFeatureDependency:
-                    print(f"\nSearching for scenarios with primaryFeatureDependency: {primaryFeatureDependency}")
-                    search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "unstable")
-        
-        if documents:
-            for doc in documents:
-                secondaryFeatureDependency = doc.get("secondaryFeatureDependency")  # Replace "feature_id" with the actual field name
-                if secondaryFeatureDependency:
-                    print(f"\nSearching for scenarios with secondaryFeatureDependency: {secondaryFeatureDependency}")
-                    search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially unstable")
-
-        # Initialize the BDD Test Generator with your OpenAI API key
-
+        # Connect to MongoDB and call search_field_in_collection
+        db = connect_to_mongodb()
+        if db is not None:
+            # Search for the code to module and feature mapping in the "code_feature_mapping" collection
+            documents = search_field_in_collection(db, "code_feature_mapping", last_script_name)
+        else:
+            print("\nNo script names found.")
+    
+    if documents:
+        for doc in documents:
+            primaryFeatureDependency = doc.get("primaryFeatureDependency")  # Replace "feature_id" with the actual field name
+            if primaryFeatureDependency:
+                print(f"\nSearching for scenarios with primaryFeatureDependency: {primaryFeatureDependency}")
+                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "unstable")
+    
+    if documents:
+        for doc in documents:
+            secondaryFeatureDependency = doc.get("secondaryFeatureDependency")  # Replace "feature_id" with the actual field name
+            if secondaryFeatureDependency:
+                print(f"\nSearching for scenarios with secondaryFeatureDependency: {secondaryFeatureDependency}")
+                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially unstable")
 
 if __name__ == "__main__":
     main()
