@@ -23,7 +23,7 @@ jobs:
             pip install -r requirements.txt
           fi
 
-          pip intsall git
+          pip install git
           pip install pymongo
 
       - name: Analyze GIT Code Change Script
