@@ -1,0 +1,21 @@
+[
+    {
+      "feature": "Login Functionality",
+      "scenario": "Successful Login with Valid Credentials",
+      "steps": [
+        "Given the user is on the login page",
+        "When the user enters valid credentials",
+        "Then the user is redirected to the dashboard"
+      ]
+    },
+    {
+      "feature": "Password Recovery",
+      "scenario": "Email Notification Sent for Password Recovery",
+      "steps": [
+        "Given the user navigates to the password recovery page",
+        "When the user submits their email",
+        "Then a recovery email is sent to the user"
+      ]
+    }
+  ]
+  

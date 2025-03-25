@@ -1,0 +1,7 @@
+input, textarea {
+    transition: border 0.3s ease-in-out;
+  }
+  input:focus, textarea:focus {
+    border-color: #3b82f6; /* Blue focus */
+  }
+  

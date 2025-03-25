@@ -1,0 +1,33 @@
+name: Auto-Map Code, Tests & Jira
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_mapping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Get Changed Files
+        run: echo "CHANGED_FILES=$(git diff --name-only HEAD~1 | tr '\n' ' ')" >> $GITHUB_ENV
+
+      - name: Run GIT Code Change Script
+        run: python code/src/app/service/mapTestToCodeToJira/detectGitCodeChanges.py
+
+      - name: Update Mongo Database
+        run: python code/src/app/service/mapTestToCodeToJira/update_neo4j.py

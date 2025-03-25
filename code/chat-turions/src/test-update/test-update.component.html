@@ -1,0 +1,16 @@
+<div class="flex h-screen w-full bg-gray-900 text-white p-6">
+    <!-- Left Section: Input Form -->
+    <div class="w-full p-6 bg-gray-800 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold mb-4">Existent Test Suites</h2>
+      <div class="grid grid-cols-3 gap-10">
+        <div *ngFor="let test of generatedTests; let id = index" (click)="getTest(id)" class="rounded-lg bg-gray-500 p-4 hover:-translate-y-1 hover:scale-105 hover:bg-gray-400">
+            <h3>{{ test.feature_name }}</h3>    
+            <h4>{{ test.short_description }}</h4>
+        </div>
+        
+      </div>
+    </div>
+  
+
+  </div>
+  
