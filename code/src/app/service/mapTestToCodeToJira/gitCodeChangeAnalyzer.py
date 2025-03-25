@@ -6,36 +6,12 @@ from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, sea
 
 def get_changed_files():
     try:
-        # Check if we are in a Git repository
-        subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], check=True, capture_output=True, text=True)
-        
-        # Check if there are at least two commits
-        result = subprocess.run(
-            ["git", "diff", "--name-only"," HEAD~1"],
-            capture_output=True, text=True, check=True
-        )
-        commit_count = int(result.stdout.strip())
-        if commit_count < 2:
-            print("Not enough commits to compare.")
-            return []
-
-        # Run the git command to get the list of changed files
-        result = subprocess.run(
+        changed_files = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1"],
-            capture_output=True, text=True, check=True
-        )
-        # Print the raw output for debugging
-        print("Raw output from git command:", result.stdout)
-        
-        # Split the output into lines and strip any whitespace
-        changed_files = result.stdout.split("\n")
+            capture_output=True,
+            text=True
+        ).stdout.split("\n")
         return [f.strip() for f in changed_files if f.strip()]
-    except subprocess.CalledProcessError as e:
-        print(f"Error running git command: {e}")
-        return []
-    except Exception as e:
-        print(f"Unexpected error: {e}")
-        return []
 
 def main():
     # Print the list of changed files
