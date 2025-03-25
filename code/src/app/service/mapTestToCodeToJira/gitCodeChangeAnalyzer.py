@@ -49,14 +49,14 @@ def main():
             primaryFeatureDependency = doc.get("primaryFeatureDependency")  # Replace "feature_id" with the actual field name
             if primaryFeatureDependency:
                 print(f"\nSearching for scenarios with primaryFeatureDependency: {primaryFeatureDependency}")
-                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "unstable")
+                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", primaryFeatureDependency, "Unstable")
     
     if documents:
         for doc in documents:
             secondaryFeatureDependency = doc.get("secondaryFeatureDependency")  # Replace "feature_id" with the actual field name
             if secondaryFeatureDependency:
                 print(f"\nSearching for scenarios with secondaryFeatureDependency: {secondaryFeatureDependency}")
-                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially unstable")
+                search_and_update_scenarios_by_state(db, "BDDTESTMAPPER", secondaryFeatureDependency, "Partially Unstable")
 
 if __name__ == "__main__":
     main()
