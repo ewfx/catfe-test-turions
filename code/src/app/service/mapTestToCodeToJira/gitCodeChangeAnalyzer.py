@@ -1,17 +1,26 @@
 import os
 import sys
-import subprocess
+import git
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
 
 def get_changed_files():
     try:
-        changed_files = subprocess.run(
-            ["git", "diff", "--name-only", "HEAD~1"],
-            capture_output=True,
-            text=True
-        ).stdout.split("\n")
+        # Initialize the repository
+        repo = git.Repo(os.getcwd())
+        
+        # Check if there are at least two commits
+        commits = list(repo.iter_commits())
+        if len(commits) < 2:
+            print("Not enough commits to compare.")
+            return []
+
+        # Get the list of changed files between the latest commit and the previous commit
+        changed_files = repo.git.diff('HEAD~1', name_only=True).split('\n')
         return [f.strip() for f in changed_files if f.strip()]
+    except Exception as e:
+        print(f"Error accessing git repository: {e}")
+        return []
 
 def main():
     # Print the list of changed files
