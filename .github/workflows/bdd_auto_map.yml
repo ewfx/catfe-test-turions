@@ -23,8 +23,11 @@ jobs:
             pip install -r requirements.txt
           fi
 
+          pip intsall git
+          pip install pymongo
+
       - name: Analyze GIT Code Change Script
-        run: python code/src/app/service/mapTestToCodeToJira/detectGitCodeChanges.py
+        run: python code/src/app/service/mapTestToCodeToJira/gitCodeChangeAnalyzer.py
 
       - name: Update BDDFeatureSet DB
         run: python code/src/app/service/mapTestToCodeToJira/updateBDDTestSet.py
