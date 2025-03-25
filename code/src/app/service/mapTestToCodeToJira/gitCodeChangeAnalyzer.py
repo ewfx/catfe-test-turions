@@ -6,6 +6,9 @@ from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, sea
 
 def get_changed_files():
     try:
+        # Check if we are in a Git repository
+        subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], check=True, capture_output=True, text=True)
+        
         # Run the git command to get the list of changed files
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1"],
@@ -19,6 +22,9 @@ def get_changed_files():
         return [f.strip() for f in changed_files if f.strip()]
     except subprocess.CalledProcessError as e:
         print(f"Error running git command: {e}")
+        return []
+    except Exception as e:
+        print(f"Unexpected error: {e}")
         return []
 
 def main():
