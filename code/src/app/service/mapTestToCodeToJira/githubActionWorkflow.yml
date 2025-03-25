@@ -1,0 +1,22 @@
+name: Auto-Map Code, Tests & Jira
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_mapping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Get Changed Files
+        run: echo "CHANGED_FILES=$(git diff --name-only HEAD~1)" >> $GITHUB_ENV
+
+      - name: Run Mapping Script
+        run: python scripts/auto_map.py
+
+      - name: Update Neo4j Database
+        run: python scripts/update_neo4j.py
