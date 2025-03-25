@@ -1,3 +1,21 @@
 flask
 transformers
 torch
+fastapi
+uvicorn
+pymongo
+watchdog
+
+# Playwright for test automation
+playwright
+behave
+
+# Testing dependencies
+pytest
+pytest-playwright
+pytest-bdd
+
+# Other utilities
+pydantic
+python-dotenv
+requests

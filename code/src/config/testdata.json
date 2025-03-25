@@ -1,0 +1,41 @@
+{
+  "test_cases": [
+    {
+      "scenario": "User logs in with valid credentials",
+      "steps": [
+        {"action": "navigate", "url": "https://parabank.parasoft.com/parabank/index.htm"},
+        {"action": "input", "field": "username", "value": "john"},
+        {"action": "input", "field": "password", "value": "demo"},
+        {"action": "click", "element": "login_button"},
+        {"action": "verify", "element": "account_overview", "expected": "visible"}
+      ]
+    },
+    {
+      "scenario": "User fails to log in with incorrect password",
+      "steps": [
+        {"action": "navigate", "url": "https://parabank.parasoft.com/parabank/index.htm"},
+        {"action": "input", "field": "username", "value": "john_doe"},
+        {"action": "input", "field": "password", "value": "wrong_password"},
+        {"action": "click", "element": "login_button"},
+        {"action": "verify", "element": "error_message", "expected": "Invalid username or password"}
+      ]
+    },
+    {
+      "scenario": "User transfers money between accounts",
+      "steps": [
+        {"action": "click", "element": "transfer_funds"},
+        {"action": "input", "field": "amount", "value": "100"},
+        {"action": "select", "field": "from_account", "value": "12345"},
+        {"action": "select", "field": "to_account", "value": "67890"},
+        {"action": "click", "element": "transfer_button"},
+        {"action": "verify", "element": "transfer_success", "expected": "Transfer Complete"}
+      ]
+    },
+    {
+      "scenario": "User checks account balance",
+      "steps": [
+        {"action": "click", "element": "accounts_overview"},
+        {"action": "verify", "element": "balance", "expected": "greater_than:0"}
+      ]
+    }
+]}
