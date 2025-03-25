@@ -17,6 +17,7 @@ export class HomeComponent {
 
   startUpdating() {
     console.log('Updating tests...');
+    this.router.navigate(['/test-update']);
   }
 
   startExecution() {
