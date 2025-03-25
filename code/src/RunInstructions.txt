@@ -1,0 +1,80 @@
+1.python -m venv venv
+2.got til src folder and run venv\Scripts\activate
+3.pip install fastapi uvicorn pymongo(added in requirements.txt)or pip install -r requirements.txt
+4.go till app folder and run uvicorn service.featureService:app --host 0.0.0.0 --port 8001
+5.docker run -d --name mongodb -p 27017:27017 mongo
+6.type python and then run below script to create mongo db collection
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")  # Connect to MongoDB
+db = client["mydatabase"]  # Create or connect to a database
+collection = db["features"]  # Create or connect to a collection
+
+# Insert a document
+collection.insert_one({"featureName": "Login Feature", "state": "active"})
+
+# Find a document
+print(collection.find_one({"featureName": "Login Feature"}))
+
+7.Use POST API with below data{
+  "featureId": "F001",
+  "featureName": "User Login",
+  "shortDescription": "Allows users to log in",
+  "featureContext": "Authentication",
+  "suggestedAIContextChange": "Enhance security",
+  "state": "Active",
+  "testScenarios": [
+    {
+      "scenarioId": "S001",
+      "scenarioName": "Successful Login",
+      "scenarioDescription": "User logs in with correct credentials",
+      "given": "User is on login page",
+      "when": "User enters valid credentials",
+      "then": "User is redirected to dashboard"
+    },
+    {
+      "scenarioId": "S002",
+      "scenarioName": "Failed Login",
+      "scenarioDescription": "User enters incorrect credentials",
+      "given": "User is on login page",
+      "when": "User enters invalid credentials",
+      "then": "Error message is displayed"
+    }
+  ]
+}
+8.PUT API
+{
+  "featureId": "F001",
+  "featureName": "User Login",
+  "shortDescription": "Allows users to log in securely",
+  "featureContext": "Authentication",
+  "suggestedAIContextChange": "Implement 2FA",
+  "state": "Active",
+  "testScenarios": [
+    {
+      "scenarioId": "S001",
+      "scenarioName": "Successful Login",
+      "scenarioDescription": "User logs in with correct credentials",
+      "given": "User is on login page",
+      "when": "User enters valid credentials",
+      "then": "User is redirected to dashboard"
+    },
+    {
+      "scenarioId": "S002",
+      "scenarioName": "Failed Login",
+      "scenarioDescription": "User enters incorrect credentials",
+      "given": "User is on login page",
+      "when": "User enters invalid credentials",
+      "then": "Error message is displayed"
+    },
+    {
+      "scenarioId": "S003",
+      "scenarioName": "2FA Verification",
+      "scenarioDescription": "User is required to enter OTP after login",
+      "given": "User has logged in successfully",
+      "when": "User enters OTP",
+      "then": "User is granted access"
+    }
+  ]
+}
+9..got til src folder and run venv\Scripts\activate and then  Go till app uvicorn ai_service.api:app --host 0.0.0.0 --port 8000 --reload
