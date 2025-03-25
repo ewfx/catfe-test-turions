@@ -8,53 +8,30 @@ from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, sea
 
 def main():
     # Git repository details
-    repo_url = "https://github.com/ewfx/catfe-test-turions.git"
-    repo_dir = "my_local_repo"  # Change this to your desired local directory name
-
-    # Clone the repository if it doesn't exist
-    if not os.path.exists(repo_dir):
-        print(f"Cloning repository from {repo_url} into {repo_dir}...")
-        repo = git.Repo.clone_from(repo_url, repo_dir)
-    else:
-        print(f"Repository already exists at {repo_dir}.")
-        repo = git.Repo(repo_dir)
-
-    # Fetch the latest changes
-    print("Fetching latest changes...")
-    repo.git.fetch()
-
-    # Get the latest commit and the previous commit
-    commits = list(repo.iter_commits())
-    if len(commits) < 2:
-        print("Not enough commits to compare.")
-        exit()
-
-    latest_commit = commits[0]
-    previous_commit = commits[1]
-
-    # Identify changes
-    diff = repo.git.diff(previous_commit.hexsha, latest_commit.hexsha)
-    if diff:
-        #print("Raw Changes between the latest and previous commits:")
-        #print(diff)
+   def get_changed_files():
+    try:
+        # Run the git command to get the list of changed files
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "HEAD~1"],
+            capture_output=True, text=True, check=True
+        )
+        # Print the raw output for debugging
+        print("Raw output from git command:", result.stdout)
         
-        script_names = []
-        excluded_paths = ["tests/", "docs/"]  # Add paths or patterns to exclude
-        for line in diff.splitlines():
-            if line.startswith("--- ") or line.startswith("+++ "):
-                # Extract the file name after "--- " or "+++ "
-                file_path = line[4:]
-                if file_path != "/dev/null":  # Ignore deleted files
-                    # Exclude specific paths
-                    if not any(excluded_path in file_path for excluded_path in excluded_paths):
-                        script_names.append(file_path)
+        # Split the output into lines and strip any whitespace
+        changed_files = result.stdout.split("\n")
+        return [f.strip() for f in changed_files if f.strip()]
+    except subprocess.CalledProcessError as e:
+        print(f"Error running git command: {e}")
+        return []
 
-        print("\nExtracted Script Names (Excluding Specific Paths):")
-        print(script_names)
+        # Print the list of changed files
+        print(get_changed_files())
+
         
         # Extract only the last script name (file name without path)
-        if script_names:
-            last_script_name = os.path.basename(script_names[-1])  # Extract only the file name
+        if changed_files:
+            last_script_name = os.path.basename(changed_files[-1])  # Extract only the file name
             print(f"\nLast Script modified: {last_script_name}")
 
             # Connect to MongoDB and call search_field_in_collection
