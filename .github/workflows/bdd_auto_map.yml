@@ -25,6 +25,7 @@ jobs:
 
           pip install gitpython
           pip install pymongo
+          pip install requests
 
 
       - name: Analyze GIT Code Change Script
