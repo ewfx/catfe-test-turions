@@ -8,6 +8,9 @@ def get_changed_files():
     try:
         # Initialize the repository
         repo = git.Repo(os.getcwd())
+        print(f"Repository: {repo.working_dir}")
+
+        print(f"Current branch: {repo.active_branch}")
         
         # Check if there are at least two commits
         commits = list(repo.iter_commits())
