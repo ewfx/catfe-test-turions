@@ -9,6 +9,16 @@ def get_changed_files():
         # Check if we are in a Git repository
         subprocess.run(["git", "rev-parse", "--is-inside-work-tree"], check=True, capture_output=True, text=True)
         
+        # Check if there are at least two commits
+        result = subprocess.run(
+            ["git", "rev-list", "--count", "HEAD"],
+            capture_output=True, text=True, check=True
+        )
+        commit_count = int(result.stdout.strip())
+        if commit_count < 2:
+            print("Not enough commits to compare.")
+            return []
+
         # Run the git command to get the list of changed files
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1"],
