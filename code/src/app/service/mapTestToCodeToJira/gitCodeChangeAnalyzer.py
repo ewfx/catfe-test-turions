@@ -33,6 +33,7 @@ def main():
 
         # Connect to MongoDB and call search_field_in_collection
         db = connect_to_mongodb()
+        documents = []  # Initialize documents to an empty list
         if db is not None:
             # Search for the code to module and feature mapping in the "code_feature_mapping" collection
             documents = search_field_in_collection(db, "code_feature_mapping", last_script_name)
