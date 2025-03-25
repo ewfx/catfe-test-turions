@@ -24,10 +24,10 @@ jobs:
           fi
 
       - name: Get Changed Files
-        run: echo "CHANGED_FILES=$(git diff --name-only HEAD~1 | tr '\n' ' ')" >> $GITHUB_ENV
+        run: 
 
-      - name: Run GIT Code Change Script
-        run: python code/src/app/service/mapTestToCodeToJira/detectGitCodeChanges.py
+      - name: Analyze GIT Code Change Script
+        run: python code/src/app/service/mapTestToCodeToJira/gitCodeChangeAnalyzer.py
 
-      - name: Update Mongo Database
-        run: python code/src/app/service/mapTestToCodeToJira/update_neo4j.py
+      - name: Update BDDFeatureSet DB
+        run: python code/src/app/service/mapTestToCodeToJira/updateBDDTestSet.py
