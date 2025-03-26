@@ -29,7 +29,7 @@ jobs:
           pip install pymongo
           pip install requests
           pip install openai
-
+          
 
       - name: Analyze GIT Code Change Script
         run: python code/src/app/service/mapTestToCodeToJira/gitCodeChangeAnalyzer.py

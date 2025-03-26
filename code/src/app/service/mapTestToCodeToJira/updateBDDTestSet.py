@@ -56,7 +56,7 @@ def search_field_in_collection(db, collection_name, field_value):
     except Exception as e:
         print(f"Failed to search in collection '{collection_name}':", str(e))
         return []
-def search_and_update_scenarios_by_state(db, collection_name, featureName, state):
+def search_and_update_scenarios_by_state(db, collection_name, featureName, state,jira):
     try:
         # Access the collection
         print(f"Accessing collection: {collection_name}")
@@ -70,9 +70,9 @@ def search_and_update_scenarios_by_state(db, collection_name, featureName, state
         
         # Update the state in the BDDTESTMAPPER database
 # Update the state in the BDDTESTMAPPER database
-        
+        jira_with_changes = f"Changes for {jira}" 
         update_query = {"featureName": featureName}  # Ensure this matches the document structure
-        update_data = {"$set": {"state": state}}
+        update_data = {"$set": {"state": state, "suggestedAIContextChange": jira_with_changes}}
         #print(f"Update Query: {update_query}")
         #print(f"Update Data: {update_data}")
         
