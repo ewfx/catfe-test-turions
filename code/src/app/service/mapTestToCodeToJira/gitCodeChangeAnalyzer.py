@@ -2,7 +2,7 @@ import os
 import sys
 import git
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from supdateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
+from updateBDDTestSet import connect_to_mongodb, search_field_in_collection, search_and_update_scenarios_by_state  # Import functions from mongo_connect.py
 from fetchJiraIdFromGit import get_jira_from_commit
 
 def get_changed_files():
