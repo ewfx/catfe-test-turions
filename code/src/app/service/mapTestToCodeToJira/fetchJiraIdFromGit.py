@@ -11,7 +11,7 @@ def get_jira_from_commit():
     match = re.search(r"(JIRA-\d+)", commit_message)
     jira = match.group(0) if match else None
     #return jira
-    jira_file_path = "jira.json"
+    jira_file_path = "code/src/app/service/mapTestToCodeToJira/jira.json"
     # Open and load the jira.json file
     with open(jira_file_path, "r") as jira_file:
         jira_data = json.load(jira_file)
