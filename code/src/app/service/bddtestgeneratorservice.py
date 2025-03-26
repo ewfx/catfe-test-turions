@@ -41,7 +41,7 @@ class BDDTestGeneratorService:
 
     def __init__(self):
         # Initialize the OpenAI API key
-        self.api_key = "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"
+        self.api_key = "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"
         openai.api_key = self.api_key
 
     def generate_test_cases_openrouter(self, context):
