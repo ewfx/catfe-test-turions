@@ -29,6 +29,7 @@ jobs:
           pip install pymongo
           pip install requests
           pip install openai
+          pip install json
 
 
       - name: Analyze GIT Code Change Script
