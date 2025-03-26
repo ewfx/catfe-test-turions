@@ -4,3 +4,8 @@ torch
 pymongo
 gitpython
 requests
+openai
+fastapi
+uvicorn
+pydantic
+typing
