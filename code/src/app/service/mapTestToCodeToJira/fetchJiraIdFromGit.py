@@ -20,7 +20,7 @@ def get_jira_from_commit():
     
     print(git_root)
     
-    jira_file_path = os.path.join(git_root, "code/src/app/service/mapTestToCodeToJira/jira.json")
+    jira_file_path = os.path.join(git_root, "code/src/app/service/mapTestToCodeToJira/Jira.json")
     print(jira_file_path)
     
     # Open and load the jira.json file
