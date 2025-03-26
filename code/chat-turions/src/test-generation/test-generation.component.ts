@@ -37,12 +37,17 @@ export class TestGenerationComponent {
   // Regular expression to match Given, When, Then, and And statements
 
   generateTests() {
+    const requestBody = {
+      context: this.testContext, // Wrap the input in a key named "Context"
+    };
+  
+
     // this.testService.getGeneratedTests().subscribe((tests) => {
     //   this.generatedTests = tests; // ✅ Load test cases from JSON
     // });
     // this.getFormattedTests(this.extractGivenWhenThen(this.tempText));
     //for extracting testing using open API
-    this.testService.sendMessage(this.testContext).subscribe((resp: any) => {
+    this.testService.sendMessage(requestBody).subscribe((resp: any) => {
       {
         // console.log(resp['test_cases']);
         this.responseTests = this.extractGivenWhenThen(resp.test_cases);

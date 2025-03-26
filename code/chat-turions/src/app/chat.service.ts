@@ -32,7 +32,7 @@ export class ChatService {
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(message: string) {
+  sendMessage(requestBody: { context: string }) {
     // return this.http.post<{ response: string }>(this.apiUrl, { message }, {});
     const opt = {
       headers: new HttpHeaders({
@@ -40,7 +40,7 @@ export class ChatService {
         Accept: 'application/json',
       }),
     };
-    return this.http.post(this.apiUrl, message, opt);
+    return this.http.post(this.apiUrl, requestBody, opt);
   }
 
   getGeneratedTests(): Observable<any[]> {
