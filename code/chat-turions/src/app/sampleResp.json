@@ -1,0 +1,40 @@
+{
+  "test_cases": "format for the following context.\n\nContext:\nTo make a login scenario for a web application using Selenium with Java, we need to identify the key steps involved in a typical login process. The main steps usually include:\n\n1. Navigate to the login page.\n2. Enter the username.\n3. Enter the password.\n4. Click on the login button.\n5. Verify that the user is successfully logged in (e.g., by checking for a specific element on the home page or a success message).\n\nHere’s a BDD (Behavior-Driven Development) scenario for a login process using the Gherkin syntax (Given-When-Then):\n\n### Gherkin Scenario for a Successful Login:\n\n```gherkin\nFeature: User Login\n\n  Scenario: Successful login with valid credentials\n    Given the user is on the login page\n    When the user enters a valid username and password\n    And clicks on the login button\n    Then the user should be redirected to the home page"
+}
+
+
+const text = `format for the following context.
+
+Context:
+To make a login scenario for a web application using Selenium with Java, we need to identify the key steps involved in a typical login process. The main steps usually include:
+
+1. Navigate to the login page.
+2. Enter the username.
+3. Enter the password.
+4. Click on the login button.
+5. Verify that the user is successfully logged in (e.g., by checking for a specific element on the home page or a success message).
+
+Here’s a BDD (Behavior-Driven Development) scenario for a login process using the Gherkin syntax (Given-When-Then):
+
+### Gherkin Scenario for a Successful Login:
+
+\`\`\`gherkin
+Feature: User Login
+
+  Scenario: Successful login with valid credentials
+    Given the user is on the login page
+    When the user enters a valid username and password
+    And clicks on the login button
+    Then the user should be redirected to the home page
+\`\`\``;
+
+// Regular expressions to extract Given, When, Then
+const givenMatch = text.match(/Given\s+([^\n]+)/);
+const whenMatch = text.match(/When\s+([^\n]+)/);
+const thenMatch = text.match(/Then\s+([^\n]+)/);
+
+const given = givenMatch ? givenMatch[1].trim() : null;
+const when = whenMatch ? whenMatch[1].trim() : null;
+const then = thenMatch ? thenMatch[1].trim() : null;
+
+console.log({ given, when, then });

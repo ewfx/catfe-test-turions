@@ -1,4 +1,5 @@
-<div class="flex justify-center h-screen w-full bg-gray-900 text-white p-6">
+<!-- <div class="flex justify-center h-screen w-full bg-gray-900 text-white p-6"> -->
+<div class="flex justify-center min-h-screen w-full bg-gray-900 text-white p-6">
   <!-- Left Section: Input Form -->
   <div class="w-full p-6 bg-gray-800 rounded-lg shadow-lg">
     <h2 class="text-xl font-semibold mb-4">Enter Context</h2>
@@ -31,7 +32,7 @@
     >
       <div class="flex flex-col">
         <div class="block">
-          <h3 class="float-left text-lg font-bold">{{ test.feature }}</h3>
+          <!-- <h3 class="float-left text-lg font-bold">{{ test.feature }}</h3> -->
           <button class="float-right">edit</button>
         </div>
         <div>
@@ -44,5 +45,28 @@
         <li *ngFor="let step of test.steps">{{ step }}</li>
       </ul>
     </div>
+    <div class="flex space-x-4 mt-4">
+      <button
+        (click)="saveTestDailog()"
+        class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
+      >
+        Save Tests
+      </button>
+    </div>
   </div>
+
+  <!-- Dialog Template -->
+  <ng-template #dialogTemplate>
+    <h2 mat-dialog-title>Save Feature</h2>
+    <mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Feature Name</mat-label>
+        <input matInput [(ngModel)]="featureName" />
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <!-- <button mat-button (click)="dialog.closeAll()">Cancel</button> -->
+      <button mat-button mat-dialog-close color="primary">Save</button>
+    </mat-dialog-actions>
+  </ng-template>
 </div>

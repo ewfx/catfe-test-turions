@@ -1,41 +1,49 @@
-<div class="flex flex-col h-screen w-full bg-gray-900 text-white p-6">
-    <!-- Top Section: Generate & Update Tests -->
-    <div class="grid grid-cols-2 gap-4">
-      <!-- Generate Tests Card -->
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 class="text-xl font-semibold mb-2">Generate Tests</h2>
-        <p class="text-gray-400">
-          Create new BDD tests using AI-driven tools. Customize scenarios and steps to fit your testing needs.
-        </p>
-        <button (click)="startGenerating()" 
-          class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition">
-          Start Generating
-        </button>
-      </div>
-  
-      <!-- Update Tests Card -->
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 class="text-xl font-semibold mb-2">Update Tests</h2>
-        <p class="text-gray-400">
-          Modify existing tests to keep them up-to-date with the latest changes in your project.
-        </p>
-        <button (click)="startUpdating()" 
-          class="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-medium transition">
-          Start Updating
-        </button>
-      </div>
-    </div>
-  
-    <!-- Bottom Section: Execute Tests -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mt-4 flex-1">
-      <h2 class="text-xl font-semibold mb-2">Execute Tests</h2>
+<!-- <div class="flex flex-col h-screen w-full bg-gray-900 text-white p-6"> -->
+<div class="flex flex-col min-h-screen w-full bg-gray-900 text-white p-6">
+  <!-- Top Section: Generate & Update Tests -->
+  <div class="grid grid-cols-2 gap-4">
+    <!-- Generate Tests Card -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold mb-2">Generate Tests</h2>
       <p class="text-gray-400">
-        Run your tests and get detailed reports on their performance and outcomes.
+        Create new BDD tests using AI-driven tools. Customize scenarios and
+        steps to fit your testing needs.
       </p>
-      <button (click)="startExecution()" 
-        class="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-medium transition">
-        Start Execution
+      <button
+        (click)="startGenerating()"
+        class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition"
+      >
+        Start Generating
+      </button>
+    </div>
+
+    <!-- Update Tests Card -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-semibold mb-2">Update Tests</h2>
+      <p class="text-gray-400">
+        Modify existing tests to keep them up-to-date with the latest changes in
+        your project.
+      </p>
+      <button
+        (click)="startUpdating()"
+        class="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-medium transition"
+      >
+        Start Updating
       </button>
     </div>
   </div>
-  
+
+  <!-- Bottom Section: Execute Tests -->
+  <div class="bg-gray-800 p-6 rounded-lg shadow-lg mt-4 flex-1">
+    <h2 class="text-xl font-semibold mb-2">Execute Tests</h2>
+    <p class="text-gray-400">
+      Run your tests and get detailed reports on their performance and outcomes.
+    </p>
+    <button
+      (click)="startExecution()"
+      class="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-medium transition"
+    >
+      Start Execution
+    </button>
+  </div>
+</div>

@@ -1,5 +1,4 @@
-<div class="flex h-screen w-full bg-gray-900 text-white p-6">
-    <!-- Left Section: Input Form -->
+<!-- <div class="flex h-screen w-full bg-gray-900 text-white p-6">
     <div class="w-full p-6 bg-gray-800 rounded-lg shadow-lg">
       <h2 class="text-xl font-semibold mb-4">Existent Test Suites</h2>
       <div class="grid grid-cols-3 gap-10">
@@ -12,5 +11,32 @@
     </div>
   
 
+  </div> -->
+
+<div class="flex min-h-screen w-full bg-gray-900 text-white p-6">
+  <!-- Left Section: Input Form -->
+  <div class="w-full p-6 bg-gray-800 rounded-lg shadow-lg">
+    <h2 class="text-xl font-semibold mb-4">Existent Test Suites</h2>
+    <div class="grid grid-cols-3 gap-10">
+      <div
+        *ngFor="let test of generatedTests; let id = index"
+        (click)="getTest(test.featureId)"
+        class="rounded-lg bg-gray-500 p-4 hover:-translate-y-1 hover:scale-105 hover:bg-gray-400 relative shadow-lg rounded-lg border border-gray-300 justify-center"
+      >
+        <!-- <div class="relative w-64 h-40 bg-white shadow-lg rounded-lg border border-gray-300 flex items-center justify-center text-lg font-semibold"> -->
+
+        <!-- Top-right corner marker with text -->
+        <div
+          class="absolute top-0 right-0 w-16 h-8 text-white text-xs flex items-center justify-center font-bold rounded-bl-lg"
+          [ngClass]="getStateClass(test.state)"
+        >
+          {{ test.state }}
+        </div>
+        <!-- </div> -->
+
+        <h3>{{ test.featureName }}</h3>
+        <h4>{{ test.shortDescription }}</h4>
+      </div>
+    </div>
   </div>
-  
+</div>

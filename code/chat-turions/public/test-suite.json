@@ -1,116 +1,316 @@
 [
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    },
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    },
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    },
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    },
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    },
-    {
-        "feature_id": "FTR001",
-        "feature_name": "User Login",
-        "short_description": "Feature to allow users to log in securely.",
-        "feature_context": "As a user, I want to log in to access my account.",
-        "state": "Active",
-        "test_scenarios_list": [
-            {
-                "scenario_name": "Successful Login",
-                "scenario_description": "User enters valid credentials and logs in successfully.",
-                "scenario_status": "Passed"
-            },
-            {
-                "scenario_name": "Invalid Login Attempt",
-                "scenario_description": "User enters incorrect credentials and gets an error message.",
-                "scenario_status": "Failed"
-            }
-        ]
-    }
+  {
+    "featureId": "F001",
+    "featureName": "User Authentication",
+    "shortDescription": "Allows users to log in",
+    "featureContext": "Authentication",
+    "suggestedAIContextChange": "Changes for JIRA-112234",
+    "state": "Unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      },
+      {
+        "scenarioId": "S002",
+        "scenarioName": "Failed Login",
+        "scenarioDescription": "User enters incorrect credentials",
+        "given": "User is on login page",
+        "when": "User enters invalid credentials",
+        "then": "Error message is displayed"
+      }
+    ]
+  },
+  {
+    "featureId": "F002",
+    "featureName": "Payments",
+    "shortDescription": "Allows user to add payee",
+    "featureContext": "Add Payments",
+    "suggestedAIContextChange": "",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      },
+      {
+        "scenarioId": "S002",
+        "scenarioName": "Failed Login",
+        "scenarioDescription": "User enters incorrect credentials",
+        "given": "User is on login page",
+        "when": "User enters invalid credentials",
+        "then": "Error message is displayed"
+      }
+    ]
+  },
+  {
+    "featureId": "F003",
+    "featureName": "Statements and Reports",
+    "shortDescription": "Allows user to download statement",
+    "featureContext": "Download Statement",
+    "suggestedAIContextChange": "",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      },
+      {
+        "scenarioId": "S002",
+        "scenarioName": "Failed Login",
+        "scenarioDescription": "User enters incorrect credentials",
+        "given": "User is on login page",
+        "when": "User enters invalid credentials",
+        "then": "Error message is displayed"
+      }
+    ]
+  },
+  {
+    "featureId": "F004",
+    "featureName": "User Profile",
+    "shortDescription": "Allows user to add payee",
+    "featureContext": "Add Payments",
+    "suggestedAIContextChange": "Changes for JIRA-112234",
+    "state": "Partially unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      },
+      {
+        "scenarioId": "S002",
+        "scenarioName": "Failed Login",
+        "scenarioDescription": "User enters incorrect credentials",
+        "given": "User is on login page",
+        "when": "User enters invalid credentials",
+        "then": "Error message is displayed"
+      }
+    ]
+  },
+  {
+    "featureId": "5835453069",
+    "featureName": "FeatureName-5835453069",
+    "shortDescription": "This is new feature created by GEN AI Generator",
+    "featureContext": "sdfdsf",
+    "suggestedAIContextChange": "dfdf",
+    "state": "Unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "5835453069",
+    "featureName": "FeatureName-5835453069",
+    "shortDescription": "This is new feature created by GEN AI Generator",
+    "featureContext": "sdfdsf",
+    "suggestedAIContextChange": "dfdf",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "F001",
+    "featureName": "User Login",
+    "shortDescription": "Allows users to log in",
+    "featureContext": "Authentication",
+    "suggestedAIContextChange": "Enhance security",
+    "state": "Unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "F001",
+    "featureName": "User Login",
+    "shortDescription": "Allows users to log in",
+    "featureContext": "Authentication",
+    "suggestedAIContextChange": "Enhance security",
+    "state": "Partially unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "F001",
+    "featureName": "User Login",
+    "shortDescription": "Allows users to log in",
+    "featureContext": "Authentication",
+    "suggestedAIContextChange": "Enhance security",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "F001",
+    "featureName": "User Login",
+    "shortDescription": "Allows users to log in",
+    "featureContext": "Authentication",
+    "suggestedAIContextChange": "Enhance security",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "User is on login page",
+        "when": "User enters valid credentials",
+        "then": "User is redirected to dashboard"
+      }
+    ]
+  },
+  {
+    "featureId": "6965244395",
+    "featureName": "FeatureName-6965244395",
+    "shortDescription": "This is new feature created by GEN AI Generator",
+    "featureContext": "string",
+    "suggestedAIContextChange": "string",
+    "state": "Partially unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter my valid username and password And I click on the login button",
+        "then": "I should be redirected to the dashboard page And I should see a welcome message with my username"
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter an invalid username or password And I click on the login button",
+        "then": "I should stay on the login page And I should see an error message saying \"Invalid username or password\""
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I click on the \"Forgot Password\" link And I enter my registered email address And I click on the \"Reset Password\" button",
+        "then": "I should be redirected to the password reset page And I should receive an email with a password reset link And I should see a message saying \"Please check"
+      }
+    ]
+  },
+  {
+    "featureId": "4832661217",
+    "featureName": "FeatureName-4832661217",
+    "shortDescription": "This is new feature created by GEN AI Generator",
+    "featureContext": "string",
+    "suggestedAIContextChange": "string",
+    "state": "Partially unstable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter my valid username and password And I click on the login button",
+        "then": "I should be redirected to the dashboard page And I should see a welcome message with my username"
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter an invalid username or password And I click on the login button",
+        "then": "I should stay on the login page And I should see an error message saying \"Invalid username or password\""
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I click on the \"Forgot Password\" link And I enter my registered email address And I click on the \"Reset Password\" button",
+        "then": "I should be redirected to the password reset page And I should receive an email with a password reset link And I should see a message saying \"Please check"
+      }
+    ]
+  },
+  {
+    "featureId": "1460684530",
+    "featureName": "FeatureName-1460684530",
+    "shortDescription": "This is new feature created by GEN AI Generator",
+    "featureContext": "string",
+    "suggestedAIContextChange": "string",
+    "state": "Stable",
+    "testScenarios": [
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter my valid username and password And I click on the login button",
+        "then": "I should be redirected to the dashboard page And I should see a welcome message with my username"
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I enter an invalid username or password And I click on the login button",
+        "then": "I should stay on the login page And I should see an error message saying \"Invalid username or password\""
+      },
+      {
+        "scenarioId": "S001",
+        "scenarioName": "Successful Login",
+        "scenarioDescription": "User logs in with correct credentials",
+        "given": "that I am on the login page",
+        "when": "I click on the \"Forgot Password\" link And I enter my registered email address And I click on the \"Reset Password\" button",
+        "then": "I should be redirected to the password reset page And I should receive an email with a password reset link And I should see a message saying \"Please check"
+      }
+    ]
+  }
 ]

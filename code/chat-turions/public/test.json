@@ -1,19 +1,26 @@
 {
-    "feature_id": "FTR001",
-    "feature_name": "User Login",
-    "short_description": "Feature to allow users to log in securely.",
-    "feature_context": "As a user, I want to log in to access my account.",
-    "state": "Active",
-    "test_scenarios_list": [
-        {
-            "scenario_name": "Successful Login",
-            "scenario_description": "User enters valid credentials and logs in successfully.",
-            "scenario_status": "Passed"
-        },
-        {
-            "scenario_name": "Invalid Login Attempt",
-            "scenario_description": "User enters incorrect credentials and gets an error message.",
-            "scenario_status": "Failed"
-        }
-    ]
+  "featureId": "F001",
+  "featureName": "User Authentication",
+  "shortDescription": "Allows users to log in",
+  "featureContext": "Authentication",
+  "suggestedAIContextChange": "Changes for JIRA-112234",
+  "state": "unstable",
+  "testScenarios": [
+    {
+      "scenarioId": "S001",
+      "scenarioName": "Successful Login",
+      "scenarioDescription": "User logs in with correct credentials",
+      "given": "User is on login page",
+      "when": "User enters valid credentials",
+      "then": "User is redirected to dashboard"
+    },
+    {
+      "scenarioId": "S002",
+      "scenarioName": "Failed Login",
+      "scenarioDescription": "User enters incorrect credentials",
+      "given": "User is on login page",
+      "when": "User enters invalid credentials",
+      "then": "Error message is displayed"
+    }
+  ]
 }

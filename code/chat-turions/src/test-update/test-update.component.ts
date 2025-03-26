@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-test-update',
   imports: [CommonModule, FormsModule],
   templateUrl: './test-update.component.html',
-  styleUrl: './test-update.component.css'
+  styleUrl: './test-update.component.css',
 })
 export class TestUpdateComponent implements OnInit {
   featureName = '';
@@ -29,13 +29,21 @@ export class TestUpdateComponent implements OnInit {
     });
   }
   generateTests() {
-    this.testService.getTestSuite().subscribe((tests) => {
+    this.testService.getFeatureData().subscribe((tests) => {
       this.generatedTests = tests;
     });
   }
 
   getTest(id: any) {
     this.router.navigate(['/test-suite', id]); // Navigate and pass data via route
-    console.log("Updating tests...");
+    console.log('Updating tests...');
+  }
+  getStateClass(state: string): any {
+    const normalizedState = state.toLowerCase();
+    return {
+      'bg-green-500': normalizedState === 'stable',
+      'bg-yellow-500': normalizedState === 'partially unstable',
+      'bg-red-500': normalizedState === 'unstable',
+    };
   }
 }
