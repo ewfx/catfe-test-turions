@@ -58,3 +58,5 @@ Describe the major technical or non-technical challenges your team encountered.
 ## 👥 Team
 - **Your Name** - [GitHub](#) | [LinkedIn](#)
 - **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+
+- "Given that I am on the login page When I enter my valid username and password And I click on the login button Then I should be redirected to the dashboard page And I should see a welcome message with my username\n\nAs a user, I want to log in with invalid credentials so that I am notified of the error. Given that I am on the login page When I enter an invalid username or password And I click on the login button Then I should stay on the login page And I should see an error message saying \"Invalid username or password\"\n\nAs a user, I want to reset my password if I forget it so that I can regain access to my account. Given that I am on the login page When I click on the \"Forgot Password\" link Then I should be redirected to the password reset page When I enter my registered email address And I click on the \"Reset Password\" button Then I should receive an email with a password reset link And I should see a message saying \"Please check"
