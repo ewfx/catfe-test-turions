@@ -2,16 +2,21 @@
     <div class="w-full p-6 bg-gray-800 rounded-lg shadow-lg">
         <!-- Right Section: Generated Test Preview -->
         <h2 class="text-xl font-semibold mb-4">Preview Generated Tests</h2>
-  
-        <div *ngFor="let test of generatedTests.test_scenarios_list" class="bg-gray-700 p-4 rounded-lg shadow-md mb-4">
+        <h3 class="text-xl font-semibold mb-4">{{ test.featureName }}</h3>
+        <div *ngFor="let test of generatedTests.testScenarios" class="bg-gray-700 p-4 rounded-lg shadow-md mb-4">
           <div class="flex flex-col">
             <div class="block">
-            <h3 class="float-left text-lg font-bold">{{ test.scenario_name }}</h3>
+            <h3 class="float-left text-lg font-bold">{{ test.scenarioName }}</h3>
             <button class="float-right">edit</button>
           </div>
           <div>
-            <h4 class="text-gray-400"><strong>Scenario:</strong> {{ test.scenario_description }}</h4>
+            <h4 class="text-gray-400"><strong>Scenario:</strong> {{ test.scenarioDescription }}</h4>
           </div>
+          <ul class="list-disc pl-6 mt-2 text-gray-300">
+            <li><strong>Given:</strong> {{ test.given }}</li>
+            <li><strong>When:</strong> {{ test.when }}</li>
+            <li><strong>Then:</strong> {{ test.then }}</li>
+          </ul>
         </div>
         </div>
     </div>
