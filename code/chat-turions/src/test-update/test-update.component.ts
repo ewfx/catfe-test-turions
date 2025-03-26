@@ -25,7 +25,8 @@ export class TestUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.testService.getTestSuite().subscribe((tests) => {
-      this.generatedTests = tests;
+       this.generatedTests = tests;
+      console.log(tests);
     });
   }
   generateTests() {

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
   private baseURL =
-    'https://3b28-2405-201-c439-8008-6939-d64c-40c9-ab06.ngrok-free.app'; //'http://localhost:5000' ||
+    //'https://3b28-2405-201-c439-8008-6939-d64c-40c9-ab06.ngrok-free.app'; 
+    'http://localhost:5000'
   // privateOpenAPI =
   //   'https://3b28-2405-201-c439-8008-6939-d64c-40c9-ab06.ngrok-free.app/generate-openai-ol';
 
@@ -18,7 +19,8 @@ export class ChatService {
   private apiUrl = this.baseURL + '/generate-openai-ol';
   private jsonUrl = 'generated-tests.json';
   // private getTestSuiteUrl = this.baseURL + '/features/'; //http://localhost:8001/features/'; //temp cooment
-  private getTestSuiteUrl = 'test-suite.json';
+  // private getTestSuiteUrl = 'test-suite.json';
+  private getTestSuiteUrl = 'http://localhost:5000/features';
   private getTestUrl = 'test.json';
   // private getTestUrl = this.baseURL + '/features'; //'http://localhost:8001/features/';
   private saveTestURL = this.baseURL + '/features/'; //'http://127.0.0.1:8001/features/';

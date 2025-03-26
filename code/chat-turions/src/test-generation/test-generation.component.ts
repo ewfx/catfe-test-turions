@@ -113,9 +113,9 @@ export class TestGenerationComponent {
       featureId: randoemId,
       featureName: this.featureName, //'FeatureName-' + randoemId,
       shortDescription: 'This is new feature created by GEN AI Generator',
-      featureContext: 'string',
-      suggestedAIContextChange: 'string',
-      state: 'string',
+      featureContext: '',
+      suggestedAIContextChange: '',
+      state: 'Stable',
       testScenarios: testScnearios, //this.extractGivenWhenThen(this.tempText), //this.responseTests
     };
     // this.extractGiven(this.tempText);
